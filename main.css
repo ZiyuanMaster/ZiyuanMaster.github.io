@@ -1,0 +1,232 @@
+
+
+  /*  ROOT DYNAMIC STYLES  */
+
+
+:root {
+  --backgroundSolid: rgb(20, 20, 20);
+  --backgroundBright: rgb(40, 40, 40);
+  --colorSolid: rgb(225, 200, 0);
+  --colorOpaque: rgba(225, 200, 0, .2);
+  --textColor: rgb(200, 200, 200);
+  
+  --animationState: paused;
+  --borders: rgb(125, 125, 130);
+}
+
+
+  /*  INNER STYLES  */
+
+
+html, body {
+  position: fixed; min-width: 100vw; max-width: 100vw;
+  min-height: 100vh; max-height: 100vh;
+  width: 100vw; height: max-content; text-align: center;
+  background: var(--backgroundSolid);
+  margin: 0px; padding: 0px; inset: 0px;
+  overflow: hidden scroll; user-select: none;
+}
+* {
+  position: relative; width: auto; height: auto;
+  margin: 0; padding: 0; inset: 0;
+  overflow: hidden; scroll-behavior: smooth;
+  transition: all .25s ease-in-out;
+}
+
+
+  /*  LOADING STYLES  */
+
+
+#loading {
+  position: fixed; display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%; font: 30px "Verveine";
+  background: rgba(5, 5, 5, .95); color: var(--textColor);
+  inset: 0px; opacity: 0; visibility: hidden; z-index: 5;
+}
+#loadingText {
+  animation: blink .5s linear infinite alternate;
+  animation-play-state: var(--animationState);
+}
+@keyframes blink { to { opacity: 0; } }
+
+
+  /*  HEADER STYLES  */
+
+
+#header {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: start;
+  width: 92.5%; height: 45px; background: var(--backgroundSolid);
+  box-shadow: 0px -.5px 0px 0px var(--borders) inset;
+  margin: 0px auto 10px; padding: 5px 0px;
+}
+#closeBTN, #social {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: center;
+  width: 45px; height: 45px; font-size: 30px;
+  color: var(--colorSolid); border-radius: 100%;
+}
+#header i:active { background: var(--colorOpaque); }
+#headerText {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: center;
+  width: calc(100% - 100px); height: 100%;
+  font: 25px "Dominica"; color: var(--colorSolid);
+}
+
+
+  /*  CONTENTS STYLES  */
+
+
+#contents, #topups {
+  display: flex; flex-wrap: wrap;
+  align-items: start; justify-content: center;
+  width: calc(90% - 15px); height: 100%;
+  background: var(--backgroundBright); border-radius: 7.5px;
+  margin: 5px auto 0px; padding: 7.5px;
+}
+#search {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: start;
+  width: calc(95% - 17.5px); height: auto; font: 15px "Amazon";
+  text-overflow: ellipsis; white-space: nowrap;
+  background: var(--backgroundBright); color: var(--textColor);
+  border: none; border-radius: 2.5px; outline: none;
+  box-shadow: 0px 0px 0px .75px var(--borders);
+  margin: 5px auto 15px; padding: 10px 7.5px;
+}
+#search::placeholder { color: var(--borders); }
+
+#list {
+  display: flex; flex-wrap: wrap;
+  align-items: start; justify-content: start;
+  width: 100%; height: auto; margin-bottom: 10px;
+}
+.game {
+  width: 28%; height: auto; border-radius: 5px;
+  box-shadow: 0px 0px 0px 1px var(--textColor);
+  margin: 2.5px calc((100% - (28% * 3)) / 6);
+}
+.icnP { display: flex; width: 100%; height: auto; }
+.name {
+  position: absolute; display: flex;
+  align-items: center; justify-content: center;
+  width: 90%; height: 0em; font: bold 12.5px "Amazon";
+  letter-spacing: .5px; background: var(--colorSolid);
+  padding: 0px 5%; inset: auto 0px 0px;
+}
+
+
+  /*  TOPUPS STYLES  */
+
+
+#topups { margin-bottom: 85px; }
+#icnL {
+  display: flex; width: 95%; height: auto;
+  border-radius: 15px; margin: 5px auto 10px;
+  box-shadow: -.75px -.75px 2.5px 0px var(--colorSolid),
+              .75px .75px 2.5px 0px var(--textColor);
+}
+#IDs {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  width: 90%; height: auto; margin: 10px auto 0px;
+}
+#IDsText {
+  display: flex; flex-flow: row nowrap;
+  align-items: center; justify-content: center;
+  width: 100%; height: auto; font: 21px "Greco";
+  color: var(--textColor); margin: 0px auto 2.5px;
+}
+#singleID, #doubleID, #serverID, #optionID {
+  display: none; flex-wrap: nowrap; font: 15px "Amazon";
+  letter-spacing: .5px; background: var(--backgroundBright);
+  color: var(--textColor); border: none; outline: none;
+  box-shadow: 0px 0px 0px .5px var(--borders) inset;
+  margin: 2.5px 0px; padding: 10px 0px;
+}
+#singleID, #serverID, #optionID {
+  width: 75%; height: auto; text-align: left;
+  text-indent: 10px; border-radius: 5px 0px 0px 5px;
+}
+#doubleID {
+  width: 100%; height: auto; text-align: left;
+  text-indent: 10px; border-radius: 5px 5px 5px 5px;
+}
+#optionID { appearance: none; text-align: center; text-indent: 0px; }
+#singleID:focus, #doubleID:focus, #serverID:focus, #checkID:active {
+  box-shadow: 0px 0px 0px .5px var(--colorSolid) inset;
+}
+#checkID {
+  width: 25%; height: auto;
+  font: 15px "Amazon"; text-align: center;
+  letter-spacing: .5px; background: var(--backgroundBright);
+  color: var(--textColor); border-radius: 0px 5px 5px 0px;
+  box-shadow: 0px 0px 0px .5px var(--borders) inset;
+  margin: 2.5px 0px; padding: 10px 0px;
+}
+#checkID:active { background: var(--colorOpaque); }
+#username {
+  width: 100%; height: auto; font: 17.5px "Amazon";
+  text-align: center; color: var(--textColor); margin: .5px auto 0px;
+}
+#products {
+  display: flex; flex-wrap: wrap;
+  align-items: start; justify-content: center;
+  width: 100%; height: auto; overflow: hidden scroll;
+}
+.productType {
+  display: flex; flex-flow: row nowrap;
+  align-items: center; justify-content: center;
+  width: 100%; height: auto; font: 21px "Greco";
+  text-transform: uppercase; color: var(--textColor);
+  margin: 17.5px auto 2.5px auto;
+}
+.products {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: start;
+  width: 90%; height: auto; font: 14px "Amazon";
+  text-indent: 10px; background: var(--backgroundBright);
+  color: var(--textColor); border-radius: 2.5px;
+  box-shadow: 0px 0px 0px 1px var(--textColor);
+  margin: 5px auto; padding: 12.5px 0px;
+}
+
+
+  /*  CONFIRMS STYLES  */
+
+
+#confirms {
+  position: fixed; display: flex; flex-wrap: wrap;
+  width: 90%; height: 60px; background: var(--backgroundBright);
+  border-radius: 5px; box-shadow: 0px 0px 0px .5px var(--textColor);
+  margin: 0px auto; inset: auto 0px 10px; z-index: 2;
+}
+#prices {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: start;
+  width: 72.5%; height: max-content; font: 16px "Harmoni";
+  text-align: left; text-indent: 7.5px; white-space: nowrap;
+  color: var(--textColor); margin: auto 0px auto 1.25%;
+}
+#prices p { width: 100%; height: auto; padding: .5px 0px; }
+#buyBTN {
+  display: flex; flex-wrap: nowrap;
+  align-items: center; justify-content: center;
+  width: 22.5%; height: 55%; font: bold 18px "Amazon";
+  letter-spacing: 1.5px; color: var(--textColor); border-radius: 5px;
+  box-shadow: 0px 0px 0px 1px var(--textColor);
+  margin: auto 1.25% auto 0px;
+}
+
+
+  /*  IMPORT FONT(S)  */
+
+
+@font-face {font-family: "Amazon"; src: url("/Font/Amazon Ember.ttf");}
+@font-face {font-family: "Dominica"; src: url("/Font/Dominica.ttf");}
+@font-face {font-family: "Greco"; src: url("/Font/Greco RLW.ttf");}
+@font-face {font-family: "Harmoni"; src: url("/Font/Harmonia Sans.ttf");}
+@font-face {font-family: "NotoSans"; src: url("/Font/Noto Sans.ttf");}
+@font-face {font-family: "Verveine"; src: url("/Font/Verveine.ttf");}
