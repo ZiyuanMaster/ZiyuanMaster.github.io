@@ -370,7 +370,7 @@ function checkPagesData() {
             aP[i].style.color = "var(--textColor)";
             aP[i].style.borderRadius = "2.5px";
             aP[i].style.boxShadow = "0px 0px 0px 1px var(--textColor)";
-            aP[i].setAttribute("prices", allPrc[i].toLocaleString("id-ID"));
+            aP[i].setAttribute("prices", fixedPrc.toLocaleString("id-ID"));
           }
           
           pro.style.color = "var(--colorSolid)";
