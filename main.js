@@ -81,8 +81,15 @@ function checkPagesData() {
   
   let data = localStorage.getItem("gameData");
   if (data) { topupInterface(); } else { homeInterface(); }
-  
 
+  let allIMG = document.querySelectorAll("img");
+  allIMG.forEach((img) => {
+    img.addEventListener("contextmenu", function(event) {
+      event.preventDefault();
+    })
+  })
+
+  
     //  HOME INTERFACE FUNCTION
   
   
