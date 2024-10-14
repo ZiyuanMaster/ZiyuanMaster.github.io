@@ -13,7 +13,7 @@ let gamesData = {
       "Developer": "NetEase Games",
       "GameCodes": "bs",
       "PackageID": "com.netease.newspike",
-      "TopupType": ["Gold", false, "Subscriptions and Packages"]
+      "TopupType": ["Gold", false, "Subscription and Package"]
     },
     
     "Products": {
@@ -58,7 +58,7 @@ let gamesData = {
       "Developer": "COGNOSPHERE PTE. LTD.",
       "GameCodes": "gi",
       "PackageID": "com.miHoYo.GenshinImpact",
-      "TopupType": ["Genesis Crystal", false, "Subscriptions and Packages"]
+      "TopupType": ["Genesis Crystal", false, "Subscription and Package"]
     },
     
     "Products": {
@@ -96,6 +96,54 @@ let gamesData = {
       }
     }
   },
+
+  "Honor of Kings": {
+    "Details": {
+      "AppImages": {
+        "Landscape": "",
+        "Potrait": ""
+      },
+      "Developer": "Level Infinite",
+      "GameCodes": "hok",
+      "PackageID": "com.levelinfinite.sgameGlobal",
+      "TopupType": ["Token", false, "Subscription and Package"]
+    },
+  
+    "Products": {
+      "Main": {
+        "80 Tokens": 10842,
+        "240 Tokens": 32918,
+        "400 Tokens": 54823,
+        "560 Tokens": 76730,
+        "800 Tokens": 108751,
+        "1200 Tokens": 164668,
+        "2400 Tokens": 331562,
+        "4000 Tokens": 556378,
+        "8000 Tokens": 1097187
+      },
+  
+      "Second": false,
+  
+      "Third": {
+        "Weekly Card": 11034,
+        "Weekly Card Plus": 36244
+      }
+    },
+  
+    "IDs": {
+      "User": {
+        "Test": true,
+        "Type": "Number",
+        "minNum": 17
+      },
+  
+      "Server": {
+        "List": false,
+        "Type": false,
+        "minNum": false
+      }
+    }
+  },
   
   "Love and Deepspace": {
     "Details": {
@@ -106,7 +154,7 @@ let gamesData = {
       "Developer": "InFold Pte. Ltd.",
       "GameCodes": "lds",
       "PackageID": "com.papegames.lysk.en",
-      "TopupType": ["Crystal", false, "Subscriptions and Packages"]
+      "TopupType": ["Crystal", false, "Subscription and Package"]
     },
     
     "Products": {
@@ -152,7 +200,7 @@ let gamesData = {
       "Developer": "Moonton",
       "GameCodes": "mlbb",
       "PackageID": "com.mobile.legends",
-      "TopupType": ["Diamond", false, "Subscriptions and Packages"]
+      "TopupType": ["Diamond", false, "Subscription and Package"]
     },
     
     "Products": {
@@ -246,6 +294,15 @@ function gi() {
     "game": "genshin",
     "userid": `${doubleID.value}`,
     "serverid": `${fixVal}`
+  })
+  xhr.send(data);
+}
+
+function hok() {
+  eliteDias();
+  let data = JSON.stringify({
+    "game": "hok",
+    "userid": `${singleID.value}`
   })
   xhr.send(data);
 }
