@@ -96,7 +96,7 @@ let gamesData = {
       }
     }
   },
-
+  
   "Honor of Kings": {
     "Details": {
       "AppImages": {
@@ -205,10 +205,10 @@ let gamesData = {
     
     "Products": {
       "Main": {
-        "112 Diamonds (102+10)": 31500,
+        "112 Diamonds (100+12)": 31500,
         "172 Diamonds (156+16)": 46500,
         "222 Diamonds (200+22)": 60500,
-        "344 Diamonds (310+34)": 95500,
+        "344 Diamonds (312+32)": 95500,
         "429 Diamonds (383+46)": 116500,
         "568 Diamonds (519+49)": 148500,
         "706 Diamonds (625+81)": 180500,
@@ -243,6 +243,110 @@ let gamesData = {
         "List": "Number",
         "Type": "Input",
         "minNum": 2
+      }
+    }
+  },
+  
+  
+  "PUBG Mobile": {
+    "Details": {
+      "AppImages": {
+        "Landscape": "",
+        "Potrait": ""
+      },
+      "Developer": "Level Infinite",
+      "GameCodes": "pubgm",
+      "PackageID": "com.tencent.ig",
+      "TopupType": ["UC Indo", "UC Global", "Subscription and Package"]
+    },
+    
+    "Products": {
+      "Main": {
+        "120 UC (120+0)": 27500,
+        "240 UC (240+0)": 52500,
+        "325 UC (300+25)": 65500,
+        "505 UC (480+25)": 104500,
+        "660 UC (600+60)": 129500,
+        "985 UC (900+85)": 1935008,
+        "1320 UC (1200+120)": 2585008,
+        "1800 UC (1500+300)": 322500,
+        "2460 UC (2100+360)": 450000,
+        "3850 UC (3000+850)": 643500
+      },
+      
+      "Second": {
+        "325 UC": 75500,
+        "660 UC": 150500,
+        "1800 UC": 374500,
+        "3850 UC": 748500,
+        "8100 UC": 1496500,
+      },
+      
+      "Third": {
+        "Upgrade RP": 145500,
+        "Upgrade Elite RP": 369500
+      }
+    },
+    
+    "IDs": {
+      "User": {
+        "Test": true,
+        "Type": "Number",
+        "minNum": 8
+      },
+      
+      "Server": {
+        "List": false,
+        "Type": false,
+        "minNum": false
+      }
+    }
+  },
+  
+  "Zenless Zone Zero": {
+    "Details": {
+      "AppImages": {
+        "Landscape": "",
+        "Potrait": ""
+      },
+      "Developer": "COGNOSPHERE PTE. LTD.",
+      "GameCodes": "zzz",
+      "PackageID": "com.HoYoverse.Nap",
+      "TopupType": ["Monochrome", false, "Subscription and Package"]
+    },
+    
+    "Products": {
+      "Main": {
+        "60 Monochrome": 13500,
+        "300 Monochrome": 67500,
+        "980 Monochrome": 204500,
+        "1980 Monochrome": 442500,
+        "3280 Monochrome": 681500,
+        "6480 Monochrome": 1362500
+      },
+      
+      "Second": false,
+      
+      "Third": {
+        "Inter-Knot Membership x1": 67500,
+        "Inter-Knot Membership x2": 135500,
+        "Inter-Knot Membership x3": 203500,
+        "Inter-Knot Membership x4": 271500,
+        "Inter-Knot Membership x5": 339500
+      }
+    },
+    
+    "IDs": {
+      "User": {
+        "Test": true,
+        "Type": "Number",
+        "minNum": 8
+      },
+      
+      "Server": {
+        "List": ["America", "Asia", "Europe", "TW, HK, MO"],
+        "Type": "Option",
+        "minNum": false
       }
     }
   }
@@ -323,6 +427,32 @@ function mlbb() {
     "game": "mlbb_global",
     "userid": `${doubleID.value}`,
     "serverid": `${serverID.value}`
+  })
+  xhr.send(data);
+}
+
+function pubgm() {
+  eliteDias();
+  let data = JSON.stringify({
+    "game": "pubgm",
+    "userid": `${singleID.value}`
+  })
+  xhr.send(data);
+}
+
+function zzz() {
+  let fixVal = "";
+  if (optionID.value === "America") { fixVal = "os_usa"; }
+  else if (optionID.value === "Asia") { fixVal = "os_asia"; }
+  else if (optionID.value === "Europe") { fixVal = "os_euro"; }
+  else if (optionID.value === "TW, HK, MO") { fixVal = "os_cht"; }
+  
+  eliteDiasMihoyo();
+  
+  let data = JSON.stringify({
+    "game": "zzz",
+    "userid": `${doubleID.value}`,
+    "serverid": `${fixVal}`
   })
   xhr.send(data);
 }
